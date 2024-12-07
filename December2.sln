@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperCrudApp", "DapperCrudApp\DapperCrudApp.csproj", "{D0ED8C6A-81B8-497E-9363-1A6878E32FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{B13C4F62-17BD-4D22-AAF1-92A4976AB420}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0ED8C6A-81B8-497E-9363-1A6878E32FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0ED8C6A-81B8-497E-9363-1A6878E32FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0ED8C6A-81B8-497E-9363-1A6878E32FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0ED8C6A-81B8-497E-9363-1A6878E32FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13C4F62-17BD-4D22-AAF1-92A4976AB420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13C4F62-17BD-4D22-AAF1-92A4976AB420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13C4F62-17BD-4D22-AAF1-92A4976AB420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13C4F62-17BD-4D22-AAF1-92A4976AB420}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
