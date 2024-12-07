@@ -1,4 +1,5 @@
 using Dapper;
+using Library.DataContext;
 using Library.Model;
 using Npgsql;
 
@@ -6,51 +7,49 @@ namespace Library.Service;
 
 public class MentorService
 {
-    string connectionString = "Server=127.0.0.1;Port=5432;Database=DapperCrudDB;User Id=postgres;Password=280806;";
+    DapperContext dapperContext;
+    public MentorService()
+    {
+        dapperContext = new DapperContext();
+    }
     public bool Insert(Mentor mentor)
     {
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            var sql = @"insert into Mentors (Name,Email,phone) values
+
+        var sql = @"insert into Mentors (Name,Email,phone) values
             (@Name,@email,@phone)";
-            var effect = connection.Execute(sql, mentor);
-            return effect > 0;
-        }
+        var effect = dapperContext.Connection().Execute(sql, mentor);
+        return effect > 0;
+
     }
     public bool Update(Mentor mentor)
     {
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            var sql = @"update Mentors set Name = @Name, Email = @Email,phone = @Phone
+
+        var sql = @"update Mentors set Name = @Name, Email = @Email,phone = @Phone
             where Id = @Id";
-            var effect = connection.Execute(sql, mentor);
-            return effect > 0;
-        }
+        var effect = dapperContext.Connection().Execute(sql, mentor);
+        return effect > 0;
+
     }
     public bool Delete(int id)
     {
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            var sql = "delete from Mentors where Id = @Id";
-            var effect = connection.Execute(sql, new { Id = id });
-            return effect > 0;
-        }
+
+        var sql = "delete from Mentors where Id = @Id";
+        var effect = dapperContext.Connection().Execute(sql, new { Id = id });
+        return effect > 0;
+
     }
     public List<Mentor> GetMentors()
     {
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            var sql = @"select * from Mentors";
-            return connection.Query<Mentor>(sql).ToList();
-        }
+
+        var sql = @"select * from Mentors";
+        return dapperContext.Connection().Query<Mentor>(sql).ToList();
+
     }
     public Student GetMentorById(int id)
     {
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            var sql = "select * from Mentors where id=@Id;";
-            var students = connection.QuerySingle<Student>(sql, new { Id = id });
-            return students;
-        }
+        var sql = "select * from Mentors where id=@Id;";
+        var students = dapperContext.Connection().QuerySingle<Student>(sql, new { Id = id });
+        return students;
+
     }
 }
